@@ -2,7 +2,7 @@
 title: Jekyll Maps
 email: matthews.sam@gmail.com
 description: Point-based map engine generated via static Jekyll posts.
-baseurl: "/" # the subpath of your site, e.g. /blog/
+baseurl: # the subpath of your site, e.g. /blog/
 url: "http://example.com" # the base hostname & protocol for your site
 twitter_username: vancematthews
 github_username:  svmatthews
