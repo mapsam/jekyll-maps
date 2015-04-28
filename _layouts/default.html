@@ -4,17 +4,27 @@
   {% include head.html %}
 
   <body>
-
-    {% include header.html %}
-
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
-
-    {% include footer.html %}
-
+    <div id="map"></div>
+    <script>
+      window.geojson = {
+        type: 'FeatureCollection',
+        features: [
+          {% for post in site.posts %}
+          {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+              'type': 'Point',
+              'coordinates': [
+                {{ post.lng }},
+                {{ post.lat }}
+              ]
+            }
+          },{% endfor %}
+        ]
+      };
+    </script>
+    <script type="text/javascript" src="{{ "/js/site.js" | prepend: site.baseurl }}"></script> 
   </body>
 
 </html>

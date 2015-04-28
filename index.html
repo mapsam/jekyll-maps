@@ -1,12 +1,3 @@
 ---
-layout: map
+layout: default
 ---
-
-{% for post in site.posts %}
-  <script>
-    var lat = {{ post.lat }};
-    var lng = {{ post.lng }};
-    console.log(lat,lng);
-  </script>
-  <p> {{ post.title }}</p>
-{% endfor %}
