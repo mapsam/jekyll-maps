@@ -1,11 +1,11 @@
-# Site settings
-title: Jekyll Maps
-email: matthews.sam@gmail.com
-description: Point-based map engine generated via static Jekyll posts.
-baseurl: # the subpath of your site, e.g. /blog/
-url: "http://example.com" # the base hostname & protocol for your site
-twitter_username: vancematthews
-github_username:  svmatthews
-
-# Build settings
+# Config
+baseurl:
+url: 'http://example.com'
 markdown: kramdown
+
+# Site
+title: Jekyll Maps
+
+# Map
+map-tileset: 'http://{s}.tile.stamen.com/toner-lite/{z}/{x}/{y}.png'
+map-credits: '<a target="_blank" href="https://github.com/svmatthews/jekyll-maps">Jekyll Maps</a> | Tiles: Stamen & OSM'

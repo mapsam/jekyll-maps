@@ -1,10 +1,8 @@
 ---
 ---
 
-var JekyllMaps = function ( options ) {
-  this.options = options || {};
+var JekyllMaps = function () {
   this.map;
-  this.gj;
   this.data = {
     type: 'FeatureCollection',
     features: [
@@ -27,12 +25,12 @@ var JekyllMaps = function ( options ) {
 
 JekyllMaps.prototype._createMap = function() {
   this.map = L.map('map').setView([0, 0], 1);
-  L.tileLayer(this.options.tileset, {
-    attribution: '<a target="_blank" href="https://github.com/svmatthews/jekyll-maps">Jekyll Maps</a> | Tiles: Stamen & OSM'
+  L.tileLayer('{{ site.map-tileset }}', {
+    attribution: '{{ site.map-credits }}'
   }).addTo(this.map);
 
-  this.gj = L.geoJson(this.data);
-  this.gj.addTo(this.map);
+  this.geojson = L.geoJson(this.data);
+  this.geojson.addTo(this.map);
 
-  this.map.fitBounds(this.gj.getBounds());
+  this.map.fitBounds(this.geojson.getBounds());
 }
