@@ -1,5 +1,22 @@
-var map, gj;
-window.onload = init();
+---
+---
+var map, gj, 
+    posts = {
+      type: 'FeatureCollection',
+      features: [
+        {% for post in site.posts %}{
+          'type': 'Feature',
+          'properties': {},
+          'geometry': {
+            'type': 'Point',
+            'coordinates': [
+              {{ post.lng }},
+              {{ post.lat }}
+            ]
+          }
+        },{% endfor %}
+      ]
+    };
 
 function init() {
   map = L.map('map').setView([0, 0], 1);
@@ -7,8 +24,12 @@ function init() {
     attribution: 'Stamen & OSM'
   }).addTo(map);
 
-  gj = L.geoJson(geojson);
+  console.log(posts);
+
+  gj = L.geoJson(posts);
   gj.addTo(map);
 
   map.fitBounds(gj.getBounds());
 }
+
+window.onload = init();
